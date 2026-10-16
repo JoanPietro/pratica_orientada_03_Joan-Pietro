@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <section>
+    <h2>Usuários cadastrados</h2>
+    {% if usuarios %}
+      <ul>
+        {% for usuario in usuarios %}
+          <li>{{ usuario.nome }} — {{ usuario.email }}</li>
+        {% endfor %}
+      </ul>
+    {% else %}
+      <p>Nenhum usuário cadastrado.</p>
+    {% endif %}
+  </section>
+
+  <section>
+    <h2>Livros cadastrados</h2>
+    {% if livros %}
+      <ul>
+        {% for livro in livros %}
+          <li>{{ livro.titulo }} — Usuário: {{ livro.user.nome }}</li>
+        {% endfor %}
+      </ul>
+    {% else %}
+      <p>Nenhum livro cadastrado.</p>
+    {% endif %}
+  </section>
+{% endblock %}
